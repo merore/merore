@@ -1,0 +1,61 @@
+set nocp                                " 不兼容 vi 操作
+
+set encoding=utf-8
+set sw=4                                " 自动缩进 4 个空格
+set ts=4                                " tab 为4个空格长度
+set et                                  " tab 转成 space
+set smarttab                            " 删除多个 space 组成的 tab
+set showmatch                           " 符号匹配
+set backspace=indent,eol,start          " 更好用的删除
+set lbr                                 " 不对单词断行
+
+set rnu                                 " 相对行号
+set cursorline                          " 横线标识行
+set mouse-=a                            " 允许鼠标
+set showmatch                           " 括号匹配
+
+filetype on
+filetype indent on
+filetype plugin on
+
+" 插件
+call plug#begin('~/.config/vim/plugged')
+  Plug 'preservim/nerdtree'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'majutsushi/tagbar'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+call plug#end()
+
+map <F8> <ESC>:TagbarToggle<CR>
+map <F2> <ESC>:NERDTreeToggle<CR>
+
+
+" 关闭最后一个窗口时自动关闭 vim
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" 开启Nerdtree时自动显示Bookmarks
+let NERDTreeShowBookmarks=1  
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeHidden=1
+
+let g:airline_theme='deus'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#fnametruncate = 16
+let g:airline#extensions#tabline#fnamecollapse = 2
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+nmap <C-f> :Files<CR>
+nmap <C-b> :Buffers<CR>
+nmap <C-t> :Tags<CR>
+nmap <C-g> :GFiles?<CR>
