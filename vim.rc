@@ -13,6 +13,7 @@ set rnu                                 " 相对行号
 set cursorline                          " 横线标识行
 set mouse-=a                            " 允许鼠标
 set showmatch                           " 括号匹配
+set t_Co=256
 
 filetype on
 filetype indent on
@@ -21,9 +22,8 @@ filetype plugin on
 " 插件
 call plug#begin('~/.config/vim/plugged')
   Plug 'preservim/nerdtree'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'flazz/vim-colorschemes'
+  Plug 'felixhummel/setcolors.vim'
   Plug 'majutsushi/tagbar'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -45,17 +45,9 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeHidden=1
 
-let g:airline_theme='deus'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#fnametruncate = 16
-let g:airline#extensions#tabline#fnamecollapse = 2
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
 nmap <C-f> :Files<CR>
 nmap <C-b> :Buffers<CR>
 nmap <C-t> :Tags<CR>
 nmap <C-g> :GFiles?<CR>
+
+colorscheme merore
