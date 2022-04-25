@@ -9,23 +9,22 @@ set showmatch                           " 符号匹配
 set backspace=indent,eol,start          " 更好用的删除
 set lbr                                 " 不对单词断行
 
-set rnu                                 " 相对行号
-set cursorline                          " 横线标识行
-set mouse-=a                            " 允许鼠标
-set showmatch                           " 括号匹配
-set t_Co=256
+set nu                                  " 显示绝对行号
+set rnu                                 " 显示相对行号
+set cursorline                          " 允许光标行
+set mouse-=a                            " 允许鼠标操作
+set showmatch                           " 允许括号匹配
+set laststatus=0                        " 禁用状态栏
 
 filetype on
 filetype indent on
 filetype plugin on
 
 " 插件
-call plug#begin('~/.config/vim/plugged')
+call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
-  Plug 'flazz/vim-colorschemes'
-  Plug 'felixhummel/setcolors.vim'
   Plug 'majutsushi/tagbar'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
 call plug#end()
 
@@ -51,3 +50,22 @@ nmap <C-t> :Tags<CR>
 nmap <C-g> :GFiles?<CR>
 
 colorscheme merore
+
+" fzf 颜色和 vim 保持一致
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Normal'],
+  \ 'fg+':     ['fg', 'Normal'],
+  \ 'bg+':     ['bg', 'Normal'],
+  \ 'hl+':     ['fg', 'Normal'],
+  \ 'info':    ['fg', 'Normal'],
+  \ 'border':  ['fg', 'Normal'],
+  \ 'prompt':  ['fg', 'Normal'],
+  \ 'pointer': ['fg', 'Normal'],
+  \ 'marker':  ['fg', 'Normal'],
+  \ 'spinner': ['fg', 'Normal'],
+  \ 'header':  ['fg', 'Normal'] }
+
+let g:fzf_action = {
+  \ 'ctrl-v': 'vsplit' }
