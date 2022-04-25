@@ -9,7 +9,7 @@ rm -rf ~/.vim/plugged
 rm -rf ~/wk/merore
 
 mkdir -pv ~/wk
-git clone -o ~/wk/merore git@github.com:merore/merore.git
+git clone git@github.com:merore/merore.git ~/wk/merore
 
 mkdir -pv ~/.vim
 ln -s ~/wk/merore/vim/vim.rc ~/.vimrc
