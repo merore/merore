@@ -13,7 +13,7 @@ git clone git@github.com:merore/merore.git ~/wk/merore
 
 mkdir -pv ~/.vim
 ln -s ~/wk/merore/vim/vim.rc ~/.vimrc
-ln -s ~/wk/merpre/vim/autoload ~/.vim/autoload
+ln -s ~/wk/merore/vim/autoload ~/.vim/autoload
 ln -s ~/wk/merore/vim/colors ~/.vim/colors
 ln -s ~/wk/merore/vim/plugged ~/.vim/plugged
 
