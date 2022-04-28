@@ -50,15 +50,19 @@ let g:NERDTreeHidden=1
 
 nmap <C-f> :Files<CR>
 nmap <C-b> :Buffers<CR>
-nmap <C-t> :Tags<CR>
-nmap <C-g> :GFiles?<CR>
+nmap <C-g> :GFiles<CR>
+nmap <C-r> :Ag<CR>
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
+nnoremap <C-c> :bd<CR>
+
 
 colorscheme merore
 
 " fzf 颜色和 vim 保持一致
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
+\ { 'fg':      ['fg', "Normal"],
+  \ 'bg':      ['bg', "Normal"],
   \ 'hl':      ['fg', 'Normal'],
   \ 'fg+':     ['fg', 'Normal'],
   \ 'bg+':     ['bg', 'Normal'],
@@ -66,20 +70,31 @@ let g:fzf_colors =
   \ 'info':    ['fg', 'Normal'],
   \ 'border':  ['fg', 'Normal'],
   \ 'prompt':  ['fg', 'Normal'],
+  \ 'preview-fg':  ['bg', 'Normal'],
+  \ 'preview-bg':  ['fg', 'Normal'],
   \ 'pointer': ['fg', 'Normal'],
   \ 'marker':  ['fg', 'Normal'],
   \ 'spinner': ['fg', 'Normal'],
   \ 'header':  ['fg', 'Normal'] }
 
+
+" 竖方向分屏
 let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 
 let g:airline_theme='papercolor'
 let g:airline_extensions = ['tabline']
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+" nerdtree 显示更准确
 let g:airline_filetype_overrides = {
     \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', 'NERDTree'), '' ],
     \ }
+" 自定义 z 区显示
 let g:airline_section_z = '%p%% %l:%L'
+" 解决 ^^^ 符号问题，需配合主题方案，使 statusline  statuslineNC 配色方案不同
 set fillchars+=stl:\ ,stlnc:\ 
+
+let g:tagbar_sort = 0
