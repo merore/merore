@@ -2,7 +2,7 @@ set nocp                                " 不兼容 vi 操作
 
 set encoding=utf-8
 set sw=4                                " 自动缩进 4 个空格
-set ts=4                                " tab 为4个空格长度
+set ts=4                                " tab 为 4 个空格长度
 set et                                  " tab 转成 space
 set smarttab                            " 删除多个 space 组成的 tab
 set showmatch                           " 符号匹配
@@ -15,6 +15,9 @@ set cursorline                          " 允许光标行
 set mouse-=a                            " 允许鼠标操作
 set showmatch                           " 允许括号匹配
 set laststatus=0                        " 禁用状态栏
+set t_Co=256                            " 使用 256 色
+set noswapfile                          " 不生成临时文件
+set hidden                              " 允许切换未保存的 buffer
 
 filetype on
 filetype indent on
@@ -70,3 +73,7 @@ let g:fzf_colors =
 
 let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
+
+
+let g:airline_skip_empty_sections = 1
+let g:airline_theme='papercolor'

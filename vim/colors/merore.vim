@@ -16,7 +16,7 @@ let s:dark_gray = [145, "#afafaf"]
 
 let s:purple = [103, "#8787af"]
 
-let s:mint = [108, "#afffd7"]
+let s:mint = [108, "#87af87"]
 
 let s:none = ["NONE", ""]
 
