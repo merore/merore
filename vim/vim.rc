@@ -50,7 +50,7 @@ let g:NERDTreeHidden=1
 
 nmap <C-f> :Files<CR>
 nmap <C-b> :Buffers<CR>
-nmap <C-g> :GFiles<CR>
+nmap <C-g> :GFiles?<CR>
 nmap <C-r> :Ag<CR>
 nnoremap <C-h> :bp<CR>
 nnoremap <C-l> :bn<CR>
