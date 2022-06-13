@@ -3,7 +3,6 @@ set nocp                                " 不兼容 vi 操作
 set encoding=utf-8
 set sw=4                                " 自动缩进 4 个空格
 set ts=4                                " tab 为 4 个空格长度
-set et                                  " tab 转成 space
 set smarttab                            " 删除多个 space 组成的 tab
 set showmatch                           " 符号匹配
 set backspace=indent,eol,start          " 更好用的删除
@@ -52,6 +51,7 @@ nmap <C-f> :Files<CR>
 nmap <C-b> :Buffers<CR>
 nmap <C-g> :GFiles?<CR>
 nmap <C-r> :Ag<CR>
+nmap <C-t> :Tags<CR>
 nnoremap <C-h> :bp<CR>
 nnoremap <C-l> :bn<CR>
 nnoremap <C-c> :bd<CR>
@@ -80,9 +80,8 @@ let g:fzf_colors =
 
 " 竖方向分屏
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-s': 'vsplit' }
 
 
 let g:airline_theme='papercolor'
